@@ -9,6 +9,8 @@ RUN apt-get update \
         libgl1 \
         libglib2.0-0 \
         libegl1 \
+        libgles2 \
+        libopengl0 \
         libgomp1 \
         libsm6 \
         libxext6 \
