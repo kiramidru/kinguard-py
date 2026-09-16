@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kinguard AI · Fall Monitor</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <div>
+        <h1>Kinguard AI</h1>
+        <p class="subtitle">Elderly Fall Monitoring</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span id="connection-pill" class="pill pill-muted">Connecting…</span>
+      <span id="clock" class="clock">--:--:--</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card camera-card">
+      <div class="card-header">
+        <h2>Live Feed</h2>
+        <div class="card-header-right">
+          <span id="camera-badge" class="badge badge-muted">OFFLINE</span>
+          <button id="webcam-toggle" class="btn btn-small">Use my camera</button>
+        </div>
+      </div>
+      <div class="video-wrap">
+        <img id="live-stream" src="/api/stream" alt="Live camera feed" />
+        <video id="local-video" class="local-video" autoplay playsinline muted hidden></video>
+        <canvas id="pose-overlay" class="pose-overlay" hidden></canvas>
+        <div id="phase-overlay" class="phase-overlay phase-upright">Starting…</div>
+      </div>
+      <div class="camera-footer">
+        <span id="fps-readout">0.0 FPS</span>
+        <span id="stream-state">Waiting for frames…</span>
+      </div>
+    </section>
+
+    <section class="card status-card">
+      <div class="card-header">
+        <h2>Status</h2>
+        <span id="phase-badge" class="badge badge-muted">BOOTING</span>
+      </div>
+
+      <div id="status-hero" class="status-hero">
+        <p id="status-text">Initialising…</p>
+        <p id="status-detail" class="status-detail"></p>
+      </div>
+
+      <dl class="metrics">
+        <div class="metric">
+          <dt>Posture</dt>
+          <dd id="posture-value">—</dd>
+        </div>
+        <div class="metric">
+          <dt>Horizontal time</dt>
+          <dd id="fall-timer">0.0s</dd>
+        </div>
+        <div class="metric">
+          <dt>Last event</dt>
+          <dd id="last-event">—</dd>
+        </div>
+        <div class="metric">
+          <dt>Evidence storage</dt>
+          <dd id="storage-mode">—</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="card incidents-card">
+      <div class="card-header">
+        <h2>Incident History</h2>
+        <button id="refresh-events-btn" class="btn btn-small">Refresh</button>
+      </div>
+      <ul id="incident-list" class="incident-list">
+        <li class="incident-empty">Loading incidents…</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

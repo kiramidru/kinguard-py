@@ -1,0 +1,10 @@
+inputs:
+  nixpkgs:
+    url: github:NixOS/nixpkgs/nixos-26.05
+  devenv:
+    url: github:cachix/devenv/v2.3
+  nixpkgs-python:
+    url: github:cachix/nixpkgs-python
+    inputs:
+      nixpkgs:
+        follows: nixpkgs

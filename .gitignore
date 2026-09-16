@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+.direnv/
+.envrc
+flake.lock
+flake.nix
+
+# pre-commit
+.pre-commit-config.yaml
+
+# Runtime artefacts
+evidence/
+pose_landmarker.task
